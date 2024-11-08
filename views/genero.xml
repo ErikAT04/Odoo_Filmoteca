@@ -1,0 +1,51 @@
+<odoo>
+  <data>
+  <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="vista_filmotecaerik_genero_tree">
+      <field name="name">vista_filmotecaerik_genero_tree</field>
+      <field name="model">filmotecaerik.genero</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="description"/>
+          <field name="peliculas_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="vista_filmotecaerik_genero_form">
+      <field name="name">vista_filmotecaerik_genero_form</field>
+      <field name="model">filmotecaerik.genero</field>
+      <field name="arch" type="xml">
+        <form string="formulario_genero" >
+          <sheet>
+            <group name="group_top">
+              <field name="name"/>
+              <field name="description"/>
+              <field name="peliculas_id"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    
+    <record model="ir.actions.act_window" id="accion_filmotecaerik_genero_form">
+      <field name="name">Listado de géneros</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">filmotecaerik.genero</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Géneros
+        </p>
+        <p> Click <strong> 'Crear' </strong> para añadir nuevos géneros
+         </p>
+      </field>
+    </record>
+
+    <menuitem name="Filmoteca de Erik" id="menu_filmotecaerik_raiz"/>
+    <menuitem name="Listado de Géneros" id="menu_filmotecaerik_listado_generos" parent="menu_filmotecaerik_raiz"/>
+    <menuitem name="Consultar generós" id="menu_filmotecaerik_genero" parent="menu_filmotecaerik_listado_generos" action="accion_filmotecaerik_genero_form"/>
+    
+    </data>
+</odoo>

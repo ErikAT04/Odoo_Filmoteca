@@ -1,0 +1,52 @@
+<odoo>
+  <data>
+  <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="vista_filmotecaerik_tecnica_tree">
+      <field name="name">vista_filmotecaerik_tecnica_tree</field>
+      <field name="model">filmotecaerik.tecnica</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="description"/>
+          <field name="photo" widget="image"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="vista_filmotecaerik_tecnica_form">
+      <field name="name">vista_filmotecaerik_tecnica_form</field>
+      <field name="model">filmotecaerik.tecnica</field>
+      <field name="arch" type="xml">
+        <form string="formulario_tecnica" >
+          <sheet>
+            <group name="group_top">
+              <field name="name"/>
+              <field name="description"/>
+              <field name="photo" widget='image'/>
+              <field name="peliculas_ids"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    
+    <record model="ir.actions.act_window" id="accion_filmotecaerik_tecnica_form">
+      <field name="name">Listado de Técnicas</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">filmotecaerik.tecnica</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Técnicas
+        </p>
+        <p> Click <strong> 'Crear' </strong> para añadir nuevas técnicas
+         </p>
+      </field>
+    </record>
+
+    <menuitem name="Filmoteca de Erik" id="menu_filmotecaerik_raiz"/>
+    <menuitem name="Listado de Técnicas" id="menu_filmotecaerik_listado_tecnica" parent="menu_filmotecaerik_raiz"/>
+    <menuitem name="Consultar Técnicas" id="menu_filmotecaerik_tecnica" parent="menu_filmotecaerik_listado_tecnica" action="accion_filmotecaerik_tecnica_form"/>
+    
+    </data>
+</odoo>

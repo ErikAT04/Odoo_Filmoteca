@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_filmotecaerik_pelicula,filmotecaerik.pelicula,model_filmotecaerik_pelicula,base.group_user,1,1,1,1
+access_filmotecaerik_genero,filmotecaerik.genero,model_filmotecaerik_genero,base.group_user,1,1,1,1
+access_filmotecaerik_tecnica,filmotecaerik.tecnica,model_filmotecaerik_tecnica,base.group_user,1,1,1,1
